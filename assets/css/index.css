@@ -308,6 +308,7 @@ input[type=submit]:is(:hover, :focus-visible) {
   background-color: #ff5a3c;
   padding: 56px 40px;
   color: #ffffff;
+  margin-top: 88px;
 }
 .blockquote .section-title {
   color: #ffffff;
@@ -943,6 +944,9 @@ input[type=submit]:is(:hover, :focus-visible) {
   background-color: #171b2a;
   border-bottom: 20px solid #ff5a3c;
 }
+.footer.section {
+  padding-block: 70px 50px;
+}
 .footer-top {
   grid-template-columns: 234px 100px 100px 100px 328px;
   gap: 64px;
@@ -1099,9 +1103,6 @@ input[type=submit]:is(:hover, :focus-visible) {
   .consumers.section-container {
     padding-bottom: 0px;
   }
-  .blockquote {
-    margin-top: 88px;
-  }
   /**
      * INVESTMENT
      */
@@ -1150,9 +1151,6 @@ input[type=submit]:is(:hover, :focus-visible) {
   /**
      * FOOTER
      */
-  .footer.section {
-    padding-block: 70px 50px;
-  }
   .footer-top.grid-list {
     gap: 64px;
   }
@@ -1165,7 +1163,7 @@ input[type=submit]:is(:hover, :focus-visible) {
      * REUSED STYLE
      */
   .container {
-    max-width: 1170px;
+    max-width: 1165px;
     margin-inline: auto;
   }
   .section {

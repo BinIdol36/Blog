@@ -280,6 +280,7 @@ input[type='submit'] {
   background-color: $color-primary;
   padding: 56px 40px;
   color: $color-white;
+  margin-top: 88px;
 
   & .section-title {
     color: $color-white;
@@ -966,6 +967,10 @@ input[type='submit'] {
   background-color: $color-background-footer;
   border-bottom: 20px solid $color-primary;
 
+  &.section {
+    padding-block: 70px 50px;
+  }
+
   &-top {
     grid-template-columns: 234px 100px 100px 100px 328px;
     gap: 64px;
@@ -1148,10 +1153,6 @@ input[type='submit'] {
     padding-bottom: 0px;
   }
 
-  .blockquote {
-    margin-top: 88px;
-  }
-
   /**
      * INVESTMENT
      */
@@ -1216,10 +1217,6 @@ input[type='submit'] {
      * FOOTER
      */
 
-  .footer.section {
-    padding-block: 70px 50px;
-  }
-
   .footer-top.grid-list {
     gap: 64px;
   }
@@ -1235,7 +1232,7 @@ input[type='submit'] {
      */
 
   .container {
-    max-width: 1170px;
+    max-width: 1165px;
     margin-inline: auto;
   }
 
