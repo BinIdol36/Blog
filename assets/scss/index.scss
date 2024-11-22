@@ -20,7 +20,7 @@ body {
 
   &-title {
     @include font($fw-500, 28px);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     color: $color-text;
     line-height: 41px;
   }
@@ -34,13 +34,18 @@ body {
   }
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: #071c1f;
+}
+
 .sidebar-container {
   box-shadow: $shadow-1;
 }
 
 .section-container,
 .sidebar-container {
-  padding: 34px 37px;
+  padding: 34px 36px;
 }
 
 .btn {
@@ -48,7 +53,7 @@ body {
   color: $color-text;
   @include font($fw-600, 18px);
   max-width: max-content;
-  padding: 18px 28px;
+  padding: 17px 31px;
   border-radius: $radius-10;
   transition: $transition-1;
 
@@ -59,6 +64,10 @@ body {
   &-primary {
     background-color: $color-primary;
     color: $color-white;
+  }
+
+  &-outline {
+    margin-top: 4px;
   }
 }
 
@@ -72,18 +81,21 @@ input[type='submit'] {
 }
 
 .navbar {
+  margin-block-start: 5px;
+
   &-list {
     @include flex();
-    gap: 54px;
   }
 
   &-link {
     @include font($fw-600, 18px);
-    color: $color-text;
+    color: #233638;
     transition: $transition-2;
+    margin-left: 24px;
 
     &:is(:hover, :focus-visible) {
       color: $color-primary;
+      border-bottom: 1px solid $color-primary;
     }
   }
 }
@@ -152,12 +164,13 @@ input[type='submit'] {
   border-left: 2px solid $color-primary;
   line-height: 18px;
   padding-left: 8px;
+  color: #071c1f;
 }
 
 .society-list {
   @include flex();
   margin-inline: auto 0;
-  gap: 11px;
+  gap: 6px;
   flex-wrap: wrap;
 
   & .list-item {
@@ -188,7 +201,7 @@ input[type='submit'] {
 
     & .header-container {
       @include flex(center);
-      gap: 8px;
+      gap: 4px;
     }
   }
 
@@ -219,7 +232,11 @@ input[type='submit'] {
     & .bard-gmail,
     & .bard-address {
       @include flex(center, center);
-      gap: 6px;
+      gap: 8px;
+    }
+
+    & .bard-address {
+      gap: 0px;
     }
   }
 }
@@ -232,25 +249,40 @@ input[type='submit'] {
   background-color: #f7f7fa;
   height: 575px;
   background-size: cover;
+  font-family: $ff-poppins;
+  position: relative;
+
+  &-banner {
+    position: absolute;
+    top: -38px;
+    right: 255px;
+  }
 
   & .container {
-    padding-block: calc($section-padding + 158px);
+    padding-block: 224px;
   }
 
   &-title {
     @include font($fw-700, 48px);
     text-align: center;
     max-width: 283px;
-    margin-block-end: 20px;
+    margin-block-start: 7px;
+    margin-inline-start: -1px;
+    line-height: 72px;
+    color: #071c1f;
   }
 
   &-breadcrumb {
     @include flex(center);
     gap: 6px;
-    margin-inline-start: 82px;
+    margin-inline-start: 80px;
+    margin-top: 11px;
+    font-family: $ff-nunito;
+    color: #071c1f;
 
     & .span {
       @include font($fw-700, 24px);
+      letter-spacing: -0.2px;
     }
   }
 }
@@ -261,7 +293,7 @@ input[type='submit'] {
 
 .mask {
   &-image {
-    width: 100%;
+    max-width: 100%;
     height: 498px;
   }
 }
@@ -273,6 +305,13 @@ input[type='submit'] {
 .consumers {
   & .section-title {
     @include font($fw-700, 30px);
+    letter-spacing: -0.4px;
+  }
+
+  & .section-content {
+    letter-spacing: 0.8px;
+    color: #071c1f;
+    margin-bottom: 24px;
   }
 }
 
@@ -280,11 +319,13 @@ input[type='submit'] {
   background-color: $color-primary;
   padding: 56px 40px;
   color: $color-white;
-  margin-top: 88px;
+  margin-top: 50px;
 
   & .section-title {
     color: $color-white;
-    @include font($fw-500, 30px);
+    @include font($fw-600, 28px);
+    letter-spacing: -0.1px;
+    line-height: 38px;
   }
 
   &-author {
@@ -308,8 +349,23 @@ input[type='submit'] {
 \*-----------------------------------*/
 
 .investment {
-  &-content .section-content {
-    margin-bottom: 0px;
+  &.section-container {
+    padding-block-start: 44px;
+    padding-block-end: 20px;
+  }
+
+  &-content {
+    & .section-title {
+      @include font($fw-600, 28px);
+      letter-spacing: -0.1px;
+      margin-bottom: 22px;
+    }
+
+    & .section-content {
+      margin-bottom: 0px;
+      letter-spacing: -0.1px;
+      font-size: 16px;
+    }
   }
 }
 
@@ -321,13 +377,22 @@ input[type='submit'] {
   grid-template-columns: 0.5fr 1fr;
 
   &.grid-list {
-    gap: 30px;
+    gap: 28px;
   }
 
   &-video {
     width: 263px;
     height: 346px;
     background-size: cover;
+    position: relative;
+
+    & .video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
   }
 
   &.section-container {
@@ -351,6 +416,14 @@ input[type='submit'] {
       margin-bottom: 0px;
     }
   }
+
+  &-content {
+    & .section-title {
+      font-weight: $fw-700;
+      margin-top: 7px;
+      color: #000000;
+    }
+  }
 }
 
 /*-----------------------------------*\
@@ -363,23 +436,27 @@ input[type='submit'] {
   }
 
   & .section-title {
-    @include font($fw-600, 28px);
+    @include font($fw-700, 28px);
+    margin-bottom: 25px;
   }
 
   &-list {
     & .list-content {
       @include flex();
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     & li:last-child .list-content {
       margin-bottom: 0px;
+      margin-top: 22px;
     }
 
     & .list-content {
       & .span {
         line-height: 26px;
+        max-width: 502px;
+        color: #071c1f;
       }
 
       & object {
@@ -397,14 +474,19 @@ input[type='submit'] {
   @include flex();
   gap: 25px;
 
+  &-image {
+    margin-top: 7px;
+  }
+
   &.section-container {
-    padding: 65px 56px;
+    padding: 63px 56px;
     background-color: $color-primary;
-    margin-top: 42px;
+    margin-top: 44px;
   }
 
   & .section-title {
     color: $color-white;
+    letter-spacing: 2.2px;
   }
 
   & .option-list {
@@ -430,11 +512,17 @@ input[type='submit'] {
   &-content {
     padding-bottom: 42px;
     border-bottom: 1px solid $color-border;
+
+    & .section-title {
+      font-weight: $fw-700;
+      margin-bottom: 19px;
+    }
   }
 
   & .section-content {
     margin-bottom: 0px;
     opacity: 1;
+    letter-spacing: 1px;
   }
 }
 
@@ -443,26 +531,40 @@ input[type='submit'] {
 \*-----------------------------------*/
 
 .comment {
-  padding-top: 6px;
+  padding-top: 0px;
   padding-bottom: 0px;
+
+  &.section-container {
+    padding-right: 0px;
+  }
 
   &-header {
     @include flex(center);
+
+    & .society-list {
+      padding-right: 33px;
+      gap: 10px;
+    }
   }
 
   &-btn {
-    padding: 6px 14px;
+    padding: 9px 15px;
     margin-right: 10px;
     transition: $transition-1;
+    @include font($fw-600, 15px);
 
     &:is(:hover, :focus-visible) {
       transform: translateY(-4px);
+    }
+
+    &:last-child {
+      padding: 9px 15px;
     }
   }
 
   & .section-title {
     @include font($fw-700, 28px);
-    margin-block: 40px;
+    margin-block: 39.5px;
   }
 
   &-list {
@@ -480,6 +582,7 @@ input[type='submit'] {
       @include flex();
       gap: 16px;
       padding-bottom: 40px;
+      padding-left: 7px;
       border-bottom: 1px solid $color-border;
       margin-bottom: 35px;
 
@@ -492,7 +595,7 @@ input[type='submit'] {
 
     & .info-header {
       @include flex(center);
-      gap: 26px;
+      gap: 20px;
       margin-bottom: 6px;
 
       & h4 {
@@ -524,7 +627,7 @@ input[type='submit'] {
     & .info-content {
       @include font();
       color: $color-text;
-      margin-top: 12px;
+      margin-top: 16px;
       line-height: 27px;
     }
 
@@ -540,26 +643,26 @@ input[type='submit'] {
 
 .reply {
   background-color: $color-background-form;
-  margin: 0px 32px 44px 40px;
+  margin: -11px 32px 44px 40px;
   padding: 50px 35px 45px 33px;
 
   & .section-title {
     @include font($fw-700, 28px);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: $color-text;
     line-height: 30px;
   }
 
   & .section-content {
-    @include font($fw-600);
+    @include font($fw-600, 16px);
     color: $color-text;
-    margin-bottom: 37px;
+    margin-bottom: 32px;
   }
 
   & .form-group:is(:nth-child(-n + 3)) {
     border-bottom: 1px solid $color-white;
     padding-bottom: 8px;
-    margin-bottom: 64px;
+    margin-bottom: 61px;
     width: 100%;
 
     & input {
@@ -568,7 +671,7 @@ input[type='submit'] {
     }
 
     & textarea {
-      height: 93px;
+      height: 110px;
       outline: none;
       border: none;
       width: 100%;
@@ -582,7 +685,7 @@ input[type='submit'] {
   & .form-group:nth-child(3) {
     @include flex();
     gap: 7px;
-    margin-bottom: 38px;
+    margin-bottom: 31px;
 
     & object {
       margin-top: 7px;
@@ -591,7 +694,6 @@ input[type='submit'] {
 
   & .form-group:nth-child(4) {
     @include flex(center);
-    gap: 8px;
 
     & label {
       @include font($fw-400, 14px);
@@ -601,11 +703,11 @@ input[type='submit'] {
   }
 
   & .form-group:last-child {
-    margin-top: 43px;
+    margin-top: 39px;
 
     & input[type='submit'] {
       @include font($fw-600, 16px);
-      padding: 13px 25px;
+      padding: 18px 36px 16px 25px;
       background-color: $color-primary;
       color: $color-white;
       border-radius: $radius-3;
@@ -625,6 +727,10 @@ input[type='submit'] {
   &-content {
     padding-block: 38px;
     text-align: center;
+
+    & .society {
+      gap: 7px;
+    }
   }
 
   &-avatar {
@@ -636,7 +742,7 @@ input[type='submit'] {
 
   &-name {
     @include font($fw-700, 20px);
-    margin-block: 18px;
+    margin-block: 16px;
     color: $color-text;
   }
 
@@ -647,7 +753,7 @@ input[type='submit'] {
 
   &-rare {
     @include flex(center, center);
-    margin-block: 6px 8px;
+    margin-block: 12px 8px;
     gap: 6px;
 
     & .rare-list {
@@ -666,7 +772,8 @@ input[type='submit'] {
     @include font($fw-400, 15px);
     line-height: 26px;
     margin-inline: auto;
-    margin-bottom: 25px;
+    margin-bottom: 21px;
+    color: #133344;
   }
 }
 
@@ -675,10 +782,15 @@ input[type='submit'] {
 \*-----------------------------------*/
 
 .search {
-  margin-block: 43px;
+  margin-block: 43px 30px;
 
   &.sidebar-container {
-    padding-block: 36px;
+    padding-block: 31px 36px;
+    padding-inline: 36px 31px;
+  }
+
+  & .sidebar-title {
+    margin-bottom: 17px;
   }
 
   &-group {
@@ -690,12 +802,20 @@ input[type='submit'] {
     & input {
       width: 80%;
       margin-left: 16px;
+
+      &::placeholder {
+        color: #c4c4c4;
+      }
     }
 
     & button {
-      width: 60px;
-      height: 60px;
+      width: 68px;
+      height: 57px;
       background-color: $color-primary;
+
+      & img {
+        margin-inline: auto;
+      }
     }
   }
 }
@@ -707,12 +827,20 @@ input[type='submit'] {
 .new {
   padding-bottom: 12px;
 
+  &.sidebar-container {
+    padding-block-start: 54px;
+  }
+
+  & .sidebar-title {
+    font-weight: $fw-700;
+  }
+
   &-list {
-    margin-top: 28px;
+    margin-top: 24px;
   }
 
   & .list-item {
-    @include flex(center);
+    @include flex();
     gap: 16px;
     padding-bottom: 12px;
     border-bottom: 1px solid $color-border;
@@ -724,16 +852,19 @@ input[type='submit'] {
 
   & .item-title {
     @include font($fw-600, 15px);
-    margin-bottom: 12px;
+    line-height: 20px;
+    margin-top: 8px;
+    color: #133344;
   }
 
   & .item-time {
     @include flex(center);
-    gap: 4px;
+    gap: 9px;
+    margin-top: 9px;
 
     & span {
-      @include font($fw-400, 12px);
-      color: #8c8c8c;
+      @include font($fw-500, 14px);
+      color: #c4c4c4;
     }
   }
 }
@@ -743,14 +874,15 @@ input[type='submit'] {
 \*-----------------------------------*/
 
 .catagories {
-  margin-block: 30px;
+  margin-block: 22px 38px;
 
   &.sidebar-container {
-    padding-block: 36px;
+    padding-block: 47px 40px;
+    padding-inline-end: 34px;
   }
 
   &-list {
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
   & li:last-child .list-item {
@@ -759,23 +891,25 @@ input[type='submit'] {
 
   & .list-item {
     @include flex(center, space-between);
-    padding: 7px 8px;
+    padding: 6px 5px 6px 7px;
     background-color: #f7f7fa;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     gap: 8px;
 
     & .item-title {
       margin-left: 8px;
       @include font($fw-600, 16px);
+      color: #071c1f;
     }
 
     & .item-rare {
-      padding-inline: 8px;
-      height: 33px;
+      width: 39px;
+      height: 34px;
       background-color: #071c1f;
       color: $color-white;
       line-height: 33px;
       text-align: center;
+      @include font($fw-700);
     }
   }
 
@@ -799,12 +933,12 @@ input[type='submit'] {
 
 .photo {
   &.sidebar-container {
-    padding-block: 58px;
+    padding-block: 49px 47px;
   }
 
   &-list {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 20px;
+    margin-top: 25px;
 
     &.grid-list {
       gap: 12px;
@@ -841,12 +975,14 @@ input[type='submit'] {
   margin-block: 30px;
 
   &.sidebar-container {
-    padding-block: 38px;
+    padding-block: 49px 42px;
+    padding-inline-end: 32px;
   }
 
-  .sidebar-title {
+  & .sidebar-title {
     padding-left: 0;
     border: none;
+    color: #000000;
   }
 
   &-form {
@@ -854,7 +990,7 @@ input[type='submit'] {
 
     & .form-group:not(:last-child) {
       @include flex(center);
-      padding: 12px;
+      padding: 10px 12px;
       background-color: #f7f7fa;
       gap: 8px;
       margin-bottom: 22px;
@@ -882,7 +1018,7 @@ input[type='submit'] {
         outline: none;
         border: none;
         background-color: transparent;
-        height: 90px;
+        height: 100px;
       }
 
       & object {
@@ -894,7 +1030,7 @@ input[type='submit'] {
       @include font($fw-600, 15px);
       color: $color-white;
       background-color: $color-primary;
-      padding: 10px 18px;
+      padding: 7px 18px;
       border-radius: $radius-3;
       line-height: 30px;
     }
@@ -907,12 +1043,18 @@ input[type='submit'] {
 
 .tag {
   &.sidebar-container {
-    padding-block: 52px;
+    padding-block: 52px 57px;
+  }
+
+  & .sidebar-title {
+    padding-left: 0;
+    border: none;
+    font-weight: $fw-700;
   }
 
   &-list {
     @include flex(center);
-    gap: 9px;
+    gap: 10px;
     flex-wrap: wrap;
     margin-top: 22px;
 
@@ -945,7 +1087,11 @@ input[type='submit'] {
   margin-top: 42px;
 
   &.sidebar-container {
-    padding-block: 45px;
+    padding-block: 36px 40px;
+  }
+
+  & .section-title {
+    color: #000000;
   }
 
   & .society-list {
@@ -968,13 +1114,12 @@ input[type='submit'] {
   border-bottom: 20px solid $color-primary;
 
   &.section {
-    padding-block: 70px 50px;
+    padding-block: 66px 50px;
   }
 
   &-top {
     grid-template-columns: 234px 100px 100px 100px 328px;
     gap: 64px;
-    margin-bottom: 20px;
   }
 
   &-bard {
@@ -995,7 +1140,12 @@ input[type='submit'] {
         height: 36px;
         border-radius: $radius-4;
         border: 1px solid $color-primary;
-        @include flex(center, center);
+
+        & .btn-link {
+          width: 100%;
+          height: 100%;
+          @include flex(center, center);
+        }
       }
     }
   }
@@ -1004,13 +1154,13 @@ input[type='submit'] {
     &-title {
       @include font($fw-700, 16px);
       color: $color-white;
-      margin-block: 4px 20px;
+      margin-block: 6px 19px;
     }
   }
 
   &-link {
     @include font();
-    line-height: 36px;
+    line-height: 38px;
     color: $color-white;
     opacity: 0.75;
     transition: $transition-2;
@@ -1023,12 +1173,12 @@ input[type='submit'] {
   &-title {
     @include font($fw-700, 16px);
     color: $color-white;
-    margin-block: 4px 20px;
+    margin-block: 7px 28px;
   }
 
   &-info {
     &-header {
-      margin-bottom: 74px;
+      margin-bottom: 71px;
     }
 
     & address {
@@ -1054,6 +1204,10 @@ input[type='submit'] {
           width: 100%;
           color: #a6b2d3;
           @include font();
+
+          &::placeholder {
+            color: #a6b2d3;
+          }
         }
       }
     }
@@ -1061,7 +1215,7 @@ input[type='submit'] {
 
   &-bottom {
     grid-template-columns: repeat(3, 1fr);
-    padding-block-start: 64px;
+    padding-block-start: 79px;
   }
 
   &-contact {
@@ -1095,11 +1249,11 @@ input[type='submit'] {
 
 @include respond-to(xxlarge) {
   /**
-     * REUSED STYLE
-     */
+  * REUSED STYLE
+  */
 
   .container {
-    max-width: 1165px;
+    max-width: 1170px;
     margin-inline: auto;
   }
 
@@ -1112,7 +1266,39 @@ input[type='submit'] {
   }
 
   .navbar {
-    margin-inline: auto 44px;
+    margin-inline: auto 38px;
+
+    &-list {
+      @include flex();
+
+      & li:last-child .navbar-link {
+        margin-left: 62px;
+      }
+
+      & li:nth-child(5) .navbar-link {
+        margin-left: 66px;
+      }
+
+      & li:nth-child(4) .navbar-link {
+        margin-left: 52px;
+      }
+
+      & li:nth-child(3) .navbar-link {
+        margin-left: 47px;
+      }
+
+      & li:nth-child(3) .navbar-link {
+        margin-left: 47px;
+      }
+
+      & li:nth-child(2) .navbar-link {
+        margin-left: 47px;
+      }
+    }
+
+    &-link {
+      margin-left: 45px;
+    }
   }
 
   .grid-list {
@@ -1120,12 +1306,12 @@ input[type='submit'] {
   }
 
   .btn {
-    margin-right: 56px;
+    margin-right: 54px;
   }
 
   /**
-     * HEADER
-     */
+  * HEADER
+  */
 
   .header-container {
     max-width: 1524px;
@@ -1138,87 +1324,103 @@ input[type='submit'] {
   }
 
   /**
-     * HERO
-     */
+  * HERO
+  */
 
   /**
-     * MASK
-     */
+  * MASK
+  */
 
   /**
-     * CONSUMERS
-     */
+  * CONSUMERS
+  */
 
   .consumers.section-container {
     padding-bottom: 0px;
   }
 
   /**
-     * INVESTMENT
-     */
+  * INVESTMENT
+  */
 
   /**
-     * IMPORTANT
-     */
+  * IMPORTANT
+  */
 
   /**
-     * TREND
-     */
+  * TREND
+  */
 
   /**
-     * QUATE
-     */
+  * QUATE
+  */
 
   /**
-     * CLEAN
-     */
+  * CLEAN
+  */
 
   /**
-     * COMMENT
-     */
+  * COMMENT
+  */
 
   /**
-     * REPLY
-     */
+  * REPLY
+  */
 
   /**
-     * ABOUT
-     */
+  * ABOUT
+  */
 
   /**
-     * SEARCH
-     */
+  * SEARCH
+  */
 
   /**
-     * NEW
-     */
+  * NEW
+  */
 
   /**
-     * CATAGORIES
-     */
+  * CATAGORIES
+  */
 
   /**
-     * PHOTO
-     */
+  * PHOTO
+  */
 
   /**
-     * DROP
-     */
+  * DROP
+  */
 
   /**
-     * TAG
-     */
+  * TAG
+  */
 
   /**
-     * FOLLOW
-     */
+  * FOLLOW
+  */
 
   /**
-     * FOOTER
-     */
+  * FOOTER
+  */
 
   .footer-top.grid-list {
-    gap: 64px;
+    gap: 62px;
+  }
+
+  .footer-info {
+    padding-left: 12px;
+  }
+
+  .footer-contact-email {
+    margin-inline: auto 86px;
+  }
+
+  .footer-contact-phone {
+    margin-inline: 65px auto;
+  }
+
+  .footer-contact-copyright {
+    margin-left: 12px;
   }
 }
 
@@ -1228,8 +1430,8 @@ input[type='submit'] {
 
 @include respond-to(xlarge) {
   /**
-     * REUSED STYLE
-     */
+  * REUSED STYLE
+  */
 
   .container {
     max-width: 1165px;
@@ -1246,10 +1448,6 @@ input[type='submit'] {
 
   .navbar {
     margin-inline: auto 24px;
-
-    &-list {
-      gap: 36px;
-    }
   }
 
   .btn {
@@ -1257,8 +1455,8 @@ input[type='submit'] {
   }
 
   /**
-     * HEADER
-     */
+  * HEADER
+  */
 
   .header-container {
     max-width: 1120px;
@@ -1267,80 +1465,80 @@ input[type='submit'] {
   }
 
   /**
-     * HERO
-     */
+  * HERO
+  */
 
   /**
-     * MASK
-     */
+  * MASK
+  */
 
   /**
-     * CONSUMERS
-     */
+  * CONSUMERS
+  */
 
   /**
-     * INVESTMENT
-     */
+  * INVESTMENT
+  */
 
   /**
-     * IMPORTANT
-     */
+  * IMPORTANT
+  */
 
   /**
-     * TREND
-     */
+  * TREND
+  */
 
   /**
-     * QUATE
-     */
+  * QUATE
+  */
 
   /**
-     * CLEAN
-     */
+  * CLEAN
+  */
 
   /**
-     * COMMENT
-     */
+  * COMMENT
+  */
 
   /**
-     * REPLY
-     */
+  * REPLY
+  */
 
   /**
-     * ABOUT
-     */
+  * ABOUT
+  */
 
   /**
-     * SEARCH
-     */
+  * SEARCH
+  */
 
   /**
-     * NEW
-     */
+  * NEW
+  */
 
   /**
-     * CATAGORIES
-     */
+  * CATAGORIES
+  */
 
   /**
-     * PHOTO
-     */
+  * PHOTO
+  */
 
   /**
-     * DROP
-     */
+  * DROP
+  */
 
   /**
-     * TAG
-     */
+  * TAG
+  */
 
   /**
-     * FOLLOW
-     */
+  * FOLLOW
+  */
 
   /**
-     * FOOTER
-     */
+  * FOOTER
+  */
 }
 
 /**
@@ -1349,8 +1547,9 @@ input[type='submit'] {
 
 @include respond-to(large) {
   /**
-     * REUSED STYLE
-     */
+  * REUSED STYLE
+  */
+
   .main {
     padding-inline: 24px;
     grid-template-columns: 1fr 0.5fr;
@@ -1362,6 +1561,10 @@ input[type='submit'] {
     &-list {
       gap: 18px;
     }
+
+    &-link {
+      margin-left: 0px;
+    }
   }
 
   .btn {
@@ -1369,8 +1572,8 @@ input[type='submit'] {
   }
 
   /**
-     * HEADER
-     */
+  * HEADER
+  */
 
   .header-top,
   .header-bottom {
@@ -1382,24 +1585,25 @@ input[type='submit'] {
   }
 
   /**
-     * HERO
-     */
+  * HERO
+  */
 
   /**
-     * MASK
-     */
+  * MASK
+  */
 
   /**
-     * CONSUMERS
-     */
+  * CONSUMERS
+  */
 
   /**
-     * INVESTMENT
-     */
+  * INVESTMENT
+  */
 
   /**
-     * IMPORTANT
-     */
+  * IMPORTANT
+  */
+
   .important {
     grid-template-columns: 1fr;
 
@@ -1407,45 +1611,46 @@ input[type='submit'] {
       width: 100%;
     }
   }
-  /**
-     * TREND
-     */
 
   /**
-     * QUATE
-     */
+  * TREND
+  */
 
   /**
-     * CLEAN
-     */
+  * QUATE
+  */
 
   /**
-     * COMMENT
-     */
+  * CLEAN
+  */
 
   /**
-     * REPLY
-     */
+  * COMMENT
+  */
 
   /**
-     * ABOUT
-     */
+  * REPLY
+  */
 
   /**
-     * SEARCH
-     */
+  * ABOUT
+  */
 
   /**
-     * NEW
-     */
+  * SEARCH
+  */
 
   /**
-     * CATAGORIES
-     */
+  * NEW
+  */
 
   /**
-     * PHOTO
-     */
+  * CATAGORIES
+  */
+
+  /**
+  * PHOTO
+  */
 
   .photo-list {
     grid-template-columns: repeat(2, 1fr);
@@ -1457,20 +1662,20 @@ input[type='submit'] {
   }
 
   /**
-     * DROP
-     */
+  * DROP
+  */
 
   /**
-     * TAG
-     */
+  * TAG
+  */
 
   /**
-     * FOLLOW
-     */
+  * FOLLOW
+  */
 
   /**
-     * FOOTER
-     */
+  * FOOTER
+  */
 
   .footer-top {
     gap: 24px;
@@ -1488,8 +1693,8 @@ input[type='submit'] {
 
 @include respond-to(medium) {
   /**
-     * REUSED STYLE
-     */
+  * REUSED STYLE
+  */
 
   .main {
     padding-inline: 24px;
@@ -1508,8 +1713,8 @@ input[type='submit'] {
   }
 
   /**
-     * HEADER
-     */
+  * HEADER
+  */
 
   .header-top,
   .header-bottom {
@@ -1517,8 +1722,9 @@ input[type='submit'] {
   }
 
   /**
-     * HERO
-     */
+  * HERO
+  */
+
   .hero-title {
     text-align: left;
     margin-inline-start: 24px;
@@ -1527,61 +1733,62 @@ input[type='submit'] {
   .hero-breadcrumb {
     margin-inline-start: 24px;
   }
-  /**
-     * MASK
-     */
 
   /**
-     * CONSUMERS
-     */
+  * MASK
+  */
 
   /**
-     * INVESTMENT
-     */
+  * CONSUMERS
+  */
 
   /**
-     * IMPORTANT
-     */
+  * INVESTMENT
+  */
 
   /**
-     * TREND
-     */
+  * IMPORTANT
+  */
 
   /**
-     * QUATE
-     */
+  * TREND
+  */
 
   /**
-     * CLEAN
-     */
+  * QUATE
+  */
 
   /**
-     * COMMENT
-     */
+  * CLEAN
+  */
 
   /**
-     * REPLY
-     */
+  * COMMENT
+  */
 
   /**
-     * ABOUT
-     */
+  * REPLY
+  */
 
   /**
-     * SEARCH
-     */
+  * ABOUT
+  */
 
   /**
-     * NEW
-     */
+  * SEARCH
+  */
 
   /**
-     * CATAGORIES
-     */
+  * NEW
+  */
 
   /**
-     * PHOTO
-     */
+  * CATAGORIES
+  */
+
+  /**
+  * PHOTO
+  */
 
   .photo-list {
     grid-template-columns: repeat(2, 1fr);
@@ -1593,20 +1800,20 @@ input[type='submit'] {
   }
 
   /**
-     * DROP
-     */
+  * DROP
+  */
 
   /**
-     * TAG
-     */
+  * TAG
+  */
 
   /**
-     * FOLLOW
-     */
+  * FOLLOW
+  */
 
   /**
-     * FOOTER
-     */
+  * FOOTER
+  */
 
   .footer {
     padding-inline: 24px;
@@ -1786,8 +1993,8 @@ input[type='submit'] {
 
 @include respond-to(extra-small) {
   /**
-     * REUSED STYLE
-     */
+  * REUSED STYLE
+  */
 
   .main {
     padding-inline: 14px;
@@ -1828,8 +2035,9 @@ input[type='submit'] {
   }
 
   /**
-       * HEADER
-       */
+  * HEADER
+  */
+
   .header-container .btn-outline {
     display: none;
   }
@@ -1850,8 +2058,8 @@ input[type='submit'] {
   }
 
   /**
-       * HERO
-       */
+  * HERO
+  */
 
   .hero-title {
     text-align: left;
@@ -1861,23 +2069,27 @@ input[type='submit'] {
   .hero-breadcrumb {
     margin-inline-start: 18px;
   }
+
   /**
-       * MASK
-       */
+  * MASK
+  */
+
   .mask-image {
     height: 360px;
   }
-  /**
-       * CONSUMERS
-       */
 
   /**
-       * INVESTMENT
-       */
+  * CONSUMERS
+  */
 
   /**
-       * IMPORTANT
-       */
+  * INVESTMENT
+  */
+
+  /**
+  * IMPORTANT
+  */
+
   .important {
     grid-template-columns: 1fr;
 
@@ -1885,13 +2097,14 @@ input[type='submit'] {
       width: 100%;
     }
   }
-  /**
-       * TREND
-       */
 
   /**
-       * QUATE
-       */
+  * TREND
+  */
+
+  /**
+  * QUATE
+  */
 
   .quate {
     gap: 0px;
@@ -1904,13 +2117,14 @@ input[type='submit'] {
       display: none;
     }
   }
-  /**
-       * CLEAN
-       */
 
   /**
-       * COMMENT
-       */
+  * CLEAN
+  */
+
+  /**
+  * COMMENT
+  */
 
   .comment {
     &-btn {
@@ -1933,8 +2147,9 @@ input[type='submit'] {
   }
 
   /**
-       * REPLY
-       */
+  * REPLY
+  */
+
   .reply {
     margin-inline: 18px;
 
@@ -1948,24 +2163,24 @@ input[type='submit'] {
   }
 
   /**
-       * ABOUT
-       */
+  * ABOUT
+  */
 
   /**
-       * SEARCH
-       */
+  * SEARCH
+  */
 
   /**
-       * NEW
-       */
+  * NEW
+  */
 
   /**
-       * CATAGORIES
-       */
+  * CATAGORIES
+  */
 
   /**
-       * PHOTO
-       */
+  * PHOTO
+  */
 
   .photo-list {
     grid-template-columns: 1fr;
@@ -1977,20 +2192,20 @@ input[type='submit'] {
   }
 
   /**
-       * DROP
-       */
+  * DROP
+  */
 
   /**
-       * TAG
-       */
+  * TAG
+  */
 
   /**
-       * FOLLOW
-       */
+  * FOLLOW
+  */
 
   /**
-       * FOOTER
-       */
+  * FOOTER
+  */
 
   .footer {
     padding-inline: 24px;
